@@ -29,6 +29,7 @@ export function divideHex(a, b) {
   const divisor = hexToDec(b);
   if (divisor === 0) throw new Error('Division by zero');
 
+
   const result = hexToDec(a) / divisor;
   checkValidOutput(result);
   return decToHex(result);

@@ -11,10 +11,6 @@ describe('Hexadecimal Calculator Functions', () => {
     expect(subtractHex('10', '10')).toBe('0'); // 16 - 16 = 0 => '0'
   });
 
-  test('does not allow negative subtraction results', () => {
-    expect(() => subtractHex('05', '1F')).toThrow('Result is negative');
-  });
-
   test('multiplies two hex numbers correctly', () => {
     expect(multiplyHex('0A', '02')).toBe('14'); // 10 * 2 = 20 => '14'
     expect(multiplyHex('FF', '02')).toBe('1FE'); // 255 * 2 = 510 => '1FE'
@@ -23,6 +19,10 @@ describe('Hexadecimal Calculator Functions', () => {
   test('divides two hex numbers correctly', () => {
     expect(divideHex('1E', '02')).toBe('F'); // 30 / 2 = 15 => 'F'
     expect(divideHex('10', '10')).toBe('1'); // 16 / 16 = 1 => '1'
+  });
+
+  test('does not allow negative subtraction results', () => {
+    expect(() => subtractHex('05', '1F')).toThrow('Result is negative');
   });
 
   test('throws error on division by zero', () => {
@@ -36,4 +36,5 @@ describe('Hexadecimal Calculator Functions', () => {
   test('throws error when result exceeds 4 digits', () => {
     expect(() => multiplyHex('FFFF', '10')).toThrow('Result exceeds 4 hex digits');
   });
+  
 });
